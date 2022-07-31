@@ -1,4 +1,4 @@
-package com.example.demo.session;
+/*package com.example.demo.session;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,7 +9,7 @@ import java.io.PrintWriter;
 /**
  * Servlet implementation class LoginServlet
  */
-@WebServlet("/loginServlet")
+/*@WebServlet("/loginServlet")
 public class LoginServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
@@ -38,4 +38,4 @@ public class LoginServlet extends HttpServlet {
             out.println("Either user name or password is wrong!");
         }
     }
-}
+}*/

@@ -41,11 +41,10 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", country='" + country + '\'' +
-                ", email='" + email + '\'' +
-                '}';
+        return "\nEmployee" +
+                "\tid: " + id +
+                "\tname: " + name +
+                "\temail: " + email +
+                "\tcountry: " + country;
     }
 }

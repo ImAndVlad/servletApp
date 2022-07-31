@@ -1,4 +1,4 @@
-package com.example.demo.filters;
+/*package com.example.demo.filters;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -10,7 +10,7 @@ import java.util.Enumeration;
 /**
  * Servlet Filter implementation class RequestLoggingFilter
  */
-@WebFilter("/*")
+/*@WebFilter("/*")
 public class RequestLoggingFilter implements Filter {
 
     private ServletContext context;
@@ -42,5 +42,5 @@ public class RequestLoggingFilter implements Filter {
     public void destroy() {
     }
 
-}
+}*/
 

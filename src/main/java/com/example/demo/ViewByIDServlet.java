@@ -11,16 +11,19 @@ import java.io.PrintWriter;
 @WebServlet("/viewByIDServlet")
 public class ViewByIDServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
-        response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
-        String sid = request.getParameter("id");
-        int id = Integer.parseInt(sid);
+        try {
+            response.setContentType("text/html");
+            String sid = request.getParameter("id");
+            int id = Integer.parseInt(sid);
+            Employee employee = EmployeeRepository.getEmployeeById(id);
 
-        Employee employee = EmployeeRepository.getEmployeeById(id);
-
-        out.print(employee);
-        out.close();
+            out.print(employee);
+        } catch (Exception e) {
+            out.println("Exception");
+        } finally {
+            out.close();
+        }
     }
 }

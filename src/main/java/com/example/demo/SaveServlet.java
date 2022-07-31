@@ -13,21 +13,23 @@ public class SaveServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        response.setContentType("text/plain");
-        response.setCharacterEncoding("UTF-8");
-
+        Employee employee = new Employee();
         PrintWriter out = response.getWriter();
 
-        String name = request.getParameter("name");
-        String email = request.getParameter("email");
-        String country = request.getParameter("country");
+        try {
+            response.setContentType("text/plain");
+            response.setCharacterEncoding("UTF-8");
 
-        Employee employee = new Employee();
+            String name = request.getParameter("name");
+            String email = request.getParameter("email");
+            String country = request.getParameter("country");
 
-        employee.setName(name);
-        employee.setEmail(email);
-        employee.setCountry(country);
+            employee.setName(name);
+            employee.setEmail(email);
+            employee.setCountry(country);
+        } catch (Exception e) {
+            out.println("IOException");
+        }
 
         //out.println(employee.toString());
         //out.println(EmployeeRepository.getConnection());
@@ -35,11 +37,14 @@ public class SaveServlet extends HttpServlet {
         int status = EmployeeRepository.save(employee);
         //out.println(status);
 
-        if (status > 0) {
-            out.print("Record saved successfully!");
-        } else {
+        try {
+            if (status > 0) {
+                out.print("Record saved successfully!");
+            }
+        } catch (Exception e) {
             out.println("Sorry! unable to save record");
+        } finally {
+            out.close();
         }
-        out.close();
     }
 }

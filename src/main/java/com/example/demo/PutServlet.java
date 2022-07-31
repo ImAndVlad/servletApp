@@ -13,29 +13,35 @@ public class PutServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-
-        String sid = request.getParameter("id");
-        int id = Integer.parseInt(sid);
-
-        String name = request.getParameter("name");
-        String email = request.getParameter("email");
-
         Employee employee = new Employee();
-        employee.setId(id);
-        employee.setName(name);
-        employee.setEmail(email);
-        employee.setCountry(request.getParameter("country"));
+
+        try {
+            response.setContentType("text/html");
+            String sid = request.getParameter("id");
+            int id = Integer.parseInt(sid);
+
+            String name = request.getParameter("name");
+            String email = request.getParameter("email");
+
+            employee.setId(id);
+            employee.setName(name);
+            employee.setEmail(email);
+            employee.setCountry(request.getParameter("country"));
+        } catch (Exception e) {
+            out.println("Sorry! unable to update record\nIOException");
+        }
 
         int status = EmployeeRepository.update(employee);
 
-        if (status > 0) {
-            response.sendRedirect("viewServlet");
-        } else {
+        try {
+            if (status > 0) {
+                response.sendRedirect("viewServlet");
+            }
+        } catch (Exception e) {
             out.println("Sorry! unable to update record");
+        } finally {
+            out.close();
         }
-        out.close();
     }
 }

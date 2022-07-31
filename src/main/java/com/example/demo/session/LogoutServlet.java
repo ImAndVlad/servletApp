@@ -1,4 +1,4 @@
-package com.example.demo.session;
+/*package com.example.demo.session;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class LogoutServlet
  */
-@WebServlet("/LogoutServlet")
+/*@WebServlet("/LogoutServlet")
 public class LogoutServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -38,4 +38,4 @@ public class LogoutServlet extends HttpServlet {
         out.println("Either user name or password is wrong!");
     }
 
-}
+}*/
